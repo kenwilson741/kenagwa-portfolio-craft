@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -45,7 +46,7 @@ const Hero = () => {
             <div className="relative">
               <div className="w-80 h-80 bg-gradient-to-tr from-brand-600 to-brand-400 rounded-full overflow-hidden flex items-center justify-center">
                 <img 
-                  src="/wilson-profile.jpg" 
+                  src="/lovable-uploads/da62318d-7fb1-466d-965b-e804646b610b.png" 
                   alt="Wilson Kenagwa" 
                   className="w-full h-full object-cover"
                   onError={(e) => {
