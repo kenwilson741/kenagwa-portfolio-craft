@@ -6,8 +6,8 @@ const Education = () => {
   const academic = [
     {
       degree: "Bachelor of Arts in Media Communication",
-      institution: "University",
-      period: "2020 - Present (4th Year)",
+      institution: "Laikipia University",
+      period: "2022 - 2026",
       description: "Focusing on digital media communication, analytics, and content strategy.",
       icon: <GraduationCap className="w-10 h-10 text-brand-500" />,
     },
@@ -16,26 +16,26 @@ const Education = () => {
   const certifications = [
     {
       title: "Executive Virtual Assistant",
-      issuer: "Certification Body",
-      date: "2023",
-      icon: <Award className="w-6 h-6 text-brand-500" />,
-    },
-    {
-      title: "Introduction to Cybersecurity",
-      issuer: "Certification Body",
-      date: "2022",
+      issuer: "ALX Africa",
+      date: "September - November 2024",
       icon: <Award className="w-6 h-6 text-brand-500" />,
     },
     {
       title: "Data Analytics",
-      issuer: "Certification Body",
-      date: "2022",
+      issuer: "ALX Africa",
+      date: "March - Present 2025",
       icon: <Award className="w-6 h-6 text-brand-500" />,
     },
     {
       title: "Career AI Essentials",
-      issuer: "Certification Body",
-      date: "2023",
+      issuer: "ALX Africa",
+      date: "April - July 2024",
+      icon: <Award className="w-6 h-6 text-brand-500" />,
+    },
+    {
+      title: "Basic Computer Packages",
+      issuer: "Kisii School",
+      date: "September - November 2021",
       icon: <Award className="w-6 h-6 text-brand-500" />,
     },
   ];

@@ -18,8 +18,12 @@ const Index = () => {
     // Set up scroll event listener
     window.addEventListener("scroll", handleScrollAnimation);
     
+    // Re-trigger animations on page resize
+    window.addEventListener("resize", handleScrollAnimation);
+    
     return () => {
       window.removeEventListener("scroll", handleScrollAnimation);
+      window.removeEventListener("resize", handleScrollAnimation);
     };
   }, []);
 

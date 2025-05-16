@@ -43,11 +43,24 @@ const Hero = () => {
           </div>
           <div className="hidden lg:flex justify-center animate-scale-in">
             <div className="relative">
-              <div className="w-80 h-80 bg-gradient-to-tr from-brand-600 to-brand-400 rounded-full overflow-hidden">
-                {/* This would be replaced with an actual image when available */}
-                <div className="absolute inset-0 flex items-center justify-center text-white text-6xl font-bold">
-                  WK
-                </div>
+              <div className="w-80 h-80 bg-gradient-to-tr from-brand-600 to-brand-400 rounded-full overflow-hidden flex items-center justify-center">
+                <img 
+                  src="/placeholder.svg" 
+                  alt="Wilson Kenagwa" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null;
+                    target.src = "/placeholder.svg";
+                    const parent = target.parentElement;
+                    if (parent) {
+                      const textElement = document.createElement("div");
+                      textElement.className = "absolute inset-0 flex items-center justify-center text-white text-6xl font-bold";
+                      textElement.textContent = "WK";
+                      parent.appendChild(textElement);
+                    }
+                  }}
+                />
               </div>
               <div className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-4">
                 <div className="flex items-center space-x-2">
