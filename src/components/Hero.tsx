@@ -45,7 +45,7 @@ const Hero = () => {
             <div className="relative">
               <div className="w-80 h-80 bg-gradient-to-tr from-brand-600 to-brand-400 rounded-full overflow-hidden flex items-center justify-center">
                 <img 
-                  src="/placeholder.svg" 
+                  src="/wilson-profile.jpg" 
                   alt="Wilson Kenagwa" 
                   className="w-full h-full object-cover"
                   onError={(e) => {
