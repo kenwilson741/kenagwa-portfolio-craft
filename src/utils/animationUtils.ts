@@ -18,6 +18,29 @@ export const handleScrollAnimation = () => {
           (bar as HTMLElement).style.width = width;
         }, 300);
       });
+      
+      // For staggered animations
+      const staggeredItems = reveals[i].querySelectorAll('.stagger-item');
+      staggeredItems.forEach((item: Element, index: number) => {
+        setTimeout(() => {
+          (item as HTMLElement).classList.add('active');
+        }, 150 * index);
+      });
     }
   }
+  
+  // Handle parallax elements
+  const parallaxElements = document.querySelectorAll('.parallax');
+  parallaxElements.forEach((element: Element) => {
+    const scrollPosition = window.pageYOffset;
+    const speed = parseFloat((element as HTMLElement).dataset.speed || '0.5');
+    (element as HTMLElement).style.transform = `translateY(${scrollPosition * speed}px)`;
+  });
+};
+
+// Utility function to trigger animations manually (can be used for on-demand animations)
+export const triggerAnimation = (element: HTMLElement, animationClass: string, delay: number = 0) => {
+  setTimeout(() => {
+    element.classList.add(animationClass);
+  }, delay);
 };
