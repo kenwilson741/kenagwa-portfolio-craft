@@ -25,29 +25,29 @@ const Hero = () => {
             <span className="inline-block px-3 py-1 text-sm font-medium text-brand-700 bg-brand-50 rounded-full mb-4">
               Data Analytics Professional
             </span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
-              Hello, I'm <br />
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
+              Hello, I'm <br className="md:hidden" />
               <span className="text-brand-600 inline-block animate-slide-in" style={{ animationDuration: '1s', animationDelay: '0.6s' }}>Wilson Kenagwa</span>
             </h1>
-            <p className="text-lg text-gray-700 mb-8 max-w-lg animate-slide-in" style={{ animationDuration: '1s', animationDelay: '0.8s' }}>
+            <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 max-w-lg animate-slide-in" style={{ animationDuration: '1s', animationDelay: '0.8s' }}>
               Media Communication Specialist with expertise in Data Analytics, 
               Virtual Assistance, and Cybersecurity. Transforming data into 
               actionable insights.
             </p>
-            <div className="flex flex-wrap gap-4 animate-slide-up" style={{ animationDuration: '1s', animationDelay: '1s' }}>
-              <Button size="lg" className="bg-brand-600 hover:bg-brand-700 transition-all duration-300 hover:scale-105">
+            <div className="flex flex-wrap gap-3 sm:gap-4 animate-slide-up" style={{ animationDuration: '1s', animationDelay: '1s' }}>
+              <Button size="default" className="bg-brand-600 hover:bg-brand-700 transition-all duration-300 hover:scale-105">
                 <a href="#contact">Contact Me</a>
               </Button>
-              <Button size="lg" variant="outline" className="border-brand-200 text-brand-700 hover:bg-brand-50 transition-all duration-300 hover:scale-105">
+              <Button size="default" variant="outline" className="border-brand-200 text-brand-700 hover:bg-brand-50 transition-all duration-300 hover:scale-105">
                 <a href="#skills">Explore Skills</a>
               </Button>
             </div>
           </div>
-          <div className="hidden lg:flex justify-center animate-scale-in" style={{ animationDuration: '1.2s', animationDelay: '0.5s' }}>
+          <div className="mt-8 lg:mt-0 flex justify-center animate-scale-in" style={{ animationDuration: '1.2s', animationDelay: '0.5s' }}>
             <div className="relative hover:scale-105 transition-all duration-500">
-              <div className="w-80 h-80 bg-gradient-to-tr from-brand-600 to-brand-400 rounded-full overflow-hidden flex items-center justify-center shadow-xl transition-shadow hover:shadow-2xl">
+              <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 bg-gradient-to-tr from-brand-600 to-brand-400 rounded-full overflow-hidden flex items-center justify-center shadow-xl transition-shadow hover:shadow-2xl">
                 <img 
-                  src="/lovable-uploads/da62318d-7fb1-466d-965b-e804646b610b.png" 
+                  src="/lovable-uploads/0d9d8b94-ca15-4a6b-b76a-e74d1c10afd4.png" 
                   alt="Wilson Kenagwa" 
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   onError={(e) => {
@@ -64,7 +64,7 @@ const Hero = () => {
                   }}
                 />
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-4 animate-scale-in" style={{ animationDuration: '0.6s', animationDelay: '1.2s' }}>
+              <div className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-3 animate-scale-in" style={{ animationDuration: '0.6s', animationDelay: '1.2s' }}>
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                   <span className="text-sm font-medium">Available for hire</span>
