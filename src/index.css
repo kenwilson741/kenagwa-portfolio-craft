@@ -121,7 +121,7 @@
   /* Mobile-specific animations */
   @media (max-width: 640px) {
     .reveal {
-      @apply transition-all duration-800 ease-in-out;
+      @apply transition-all duration-700 ease-in-out;
     }
   }
 
