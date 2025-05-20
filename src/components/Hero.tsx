@@ -47,7 +47,7 @@ const Hero = () => {
             <div className="relative hover:scale-105 transition-all duration-500">
               <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 bg-gradient-to-tr from-brand-600 to-brand-400 rounded-full overflow-hidden flex items-center justify-center shadow-xl transition-shadow hover:shadow-2xl">
                 <img 
-                  src="/lovable-uploads/0d9d8b94-ca15-4a6b-b76a-e74d1c10afd4.png" 
+                  src="/lovable-uploads/981d48d0-cfb4-4f01-bdcd-65b98aa989c2.png" 
                   alt="Wilson Kenagwa" 
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   onError={(e) => {
