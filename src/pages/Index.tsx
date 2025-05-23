@@ -12,6 +12,8 @@ import VideoSection from "@/components/VideoSection";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import ParticleBackground from "@/components/ParticleBackground";
+import CustomCursor from "@/components/CustomCursor";
 import { handleScrollAnimation, setupSmoothScroll, setupMouseSpotlight } from "@/utils/animationUtils";
 
 const Index = () => {
@@ -40,16 +42,26 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background text-foreground relative">
+      <ParticleBackground />
+      <CustomCursor />
       <Navbar />
       <Hero />
+      <div className="section-separator" />
       <About />
+      <div className="section-separator" />
       <Skills />
+      <div className="section-separator" />
       <Projects />
+      <div className="section-separator" />
       <Gallery />
+      <div className="section-separator" />
       <Testimonials />
+      <div className="section-separator" />
       <Education />
+      <div className="section-separator" />
       <VideoSection />
+      <div className="section-separator" />
       <Contact />
       <Footer />
       <ScrollToTop />
