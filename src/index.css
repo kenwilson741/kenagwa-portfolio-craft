@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -77,6 +78,14 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Restore default cursor for touch devices */
+  @media (hover: none) {
+    body {
+      cursor: auto;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -109,18 +118,69 @@
     @apply translate-x-10;
   }
 
+  .reveal[data-animation="zoom-in"] {
+    @apply scale-95;
+  }
+
+  .reveal[data-animation="zoom-out"] {
+    @apply scale-105;
+  }
+
   .skill-bar {
-    @apply h-2 bg-secondary rounded-full overflow-hidden;
+    @apply h-2 bg-muted rounded-full overflow-hidden;
   }
 
   .skill-progress {
-    @apply h-full bg-brand-600 rounded-full transition-all duration-1000 ease-out;
+    @apply h-full bg-primary rounded-full transition-all duration-1000 ease-out;
+  }
+
+  /* Section dividers */
+  .wave-divider {
+    @apply w-full h-24 bg-repeat-x;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z'%3E%3C/path%3E%3C/svg%3E");
+  }
+
+  /* Mouse trail and spotlight effects */
+  .mouse-trail {
+    @apply relative overflow-hidden;
+  }
+
+  .mouse-trail::before {
+    content: "";
+    @apply absolute pointer-events-none rounded-full bg-purple-500/10 w-72 h-72 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300;
+    left: var(--mouse-x, 0);
+    top: var(--mouse-y, 0);
+  }
+
+  .mouse-trail:hover::before {
+    @apply opacity-100;
+  }
+
+  .spotlight-section {
+    @apply relative overflow-hidden;
+  }
+
+  .spotlight-effect {
+    @apply absolute w-64 h-64 rounded-full bg-gradient-to-r from-purple-500/20 to-red-500/20 blur-xl pointer-events-none -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 opacity-0;
+  }
+
+  /* Staggered animation items */
+  .stagger-item {
+    @apply opacity-0 translate-y-4 transition-all duration-700;
+  }
+
+  .stagger-item.active {
+    @apply opacity-100 translate-y-0;
   }
 
   /* Mobile-specific animations */
   @media (max-width: 640px) {
     .reveal {
       @apply transition-all duration-700 ease-in-out;
+    }
+    
+    .stagger-item {
+      @apply transition-all duration-500;
     }
   }
 
@@ -174,4 +234,27 @@ button {
     min-height: 44px;
     min-width: 44px;
   }
+}
+
+/* Custom cursor for links and buttons */
+a, button, [role="button"], .cursor-pointer {
+  cursor: none;
+}
+
+/* Restore default cursor for touch devices */
+@media (hover: none) {
+  a, button, [role="button"], .cursor-pointer {
+    cursor: auto;
+  }
+}
+
+/* Section transitions */
+section {
+  @apply relative z-10;
+}
+
+section + section::before {
+  content: '';
+  @apply absolute top-0 left-0 right-0 h-24 -mt-24 z-10 pointer-events-none;
+  background: linear-gradient(to bottom, transparent, var(--color-background) 100%);
 }
