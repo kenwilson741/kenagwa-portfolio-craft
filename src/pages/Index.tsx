@@ -42,30 +42,28 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen dark-theme-bg text-foreground relative overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground relative">
       <ParticleBackground />
       <CustomCursor />
-      <div className="relative z-10">
-        <Navbar />
-        <Hero />
-        <div className="section-separator" />
-        <About />
-        <div className="section-separator" />
-        <Skills />
-        <div className="section-separator" />
-        <Projects />
-        <div className="section-separator" />
-        <Gallery />
-        <div className="section-separator" />
-        <Testimonials />
-        <div className="section-separator" />
-        <Education />
-        <div className="section-separator" />
-        <VideoSection />
-        <div className="section-separator" />
-        <Contact />
-        <Footer />
-      </div>
+      <Navbar />
+      <Hero />
+      <div className="section-separator" />
+      <About />
+      <div className="section-separator" />
+      <Skills />
+      <div className="section-separator" />
+      <Projects />
+      <div className="section-separator" />
+      <Gallery />
+      <div className="section-separator" />
+      <Testimonials />
+      <div className="section-separator" />
+      <Education />
+      <div className="section-separator" />
+      <VideoSection />
+      <div className="section-separator" />
+      <Contact />
+      <Footer />
       <ScrollToTop />
     </div>
   );
