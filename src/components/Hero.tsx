@@ -20,7 +20,7 @@ const Hero = () => {
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
               Hello, I'm <br className="md:hidden" />
-              <span className="text-blue-600 inline-block animate-slide-in" style={{ animationDuration: '1s', animationDelay: '0.6s' }}>Wilson Kenagwa</span>
+              <span className="text-blue-600 inline-block animate-slide-in" style={{ animationDuration: '1s', animationDelay: '0.6s', fontFamily: 'Georgia, serif' }}>Wilson Kenagwa</span>
             </h1>
             <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 max-w-lg animate-slide-in leading-relaxed" style={{ animationDuration: '1s', animationDelay: '0.8s' }}>
               Media Communication Specialist with expertise in Data Analytics, 
