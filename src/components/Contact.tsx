@@ -1,10 +1,89 @@
-
-import ContactForm from "@/components/ContactForm";
-import ContactInfo from "@/components/ContactInfo";
-import SocialLinks from "@/components/SocialLinks";
-import AvailabilityCard from "@/components/AvailabilityCard";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent } from "@/components/ui/card";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      toast({
+        title: "Message sent!",
+        description: "Thank you for your message. I'll get back to you soon.",
+      });
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    }, 1500);
+  };
+
+  const contactInfo = [
+    {
+      icon: <Mail className="w-6 h-6 text-brand-500" />,
+      title: "Email",
+      value: "kenwilson741@gmail.com",
+    },
+    {
+      icon: <Phone className="w-6 h-6 text-brand-500" />,
+      title: "Phone",
+      value: "+254748449075",
+    },
+    {
+      icon: <MapPin className="w-6 h-6 text-brand-500" />,
+      title: "Location",
+      value: "Nairobi, Kenya",
+    },
+  ];
+
+  const socialLinks = [
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/wilson-kenagwa",
+      icon: <Linkedin className="w-6 h-6 text-gray-700" />,
+    },
+    {
+      name: "Twitter",
+      url: "https://x.com/RealWilsooon?t=mUdT-PRu_VT_2NeDcsyDqg&s=09",
+      icon: <Twitter className="w-6 h-6 text-gray-700" />,
+    },
+    {
+      name: "Facebook",
+      url: "https://www.facebook.com/share/1FjfvLdrMU/",
+      icon: <Facebook className="w-6 h-6 text-gray-700" />,
+    },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/_.wilie?igsh=MXRqa2kwZnc2Ynl1aQ==",
+      icon: <Instagram className="w-6 h-6 text-gray-700" />,
+    },
+  ];
+
   return (
     <section id="contact" className="py-20 bg-gray-50">
       <div className="section-container">
@@ -17,12 +96,139 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <ContactForm />
+          <div className="reveal" data-animation="fade-right">
+            <Card>
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
+                <form onSubmit={handleSubmit}>
+                  <div className="space-y-4">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                        Full Name
+                      </label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Your name"
+                        required
+                        className="w-full"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                        Email Address
+                      </label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="you@example.com"
+                        required
+                        className="w-full"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                        Subject
+                      </label>
+                      <Input
+                        id="subject"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        placeholder="How can I help you?"
+                        required
+                        className="w-full"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                        Message
+                      </label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder="Your message..."
+                        rows={5}
+                        required
+                        className="w-full"
+                      />
+                    </div>
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-brand-600 hover:bg-brand-700"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </Button>
+                  </div>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
 
           <div className="space-y-8 reveal" data-animation="fade-left">
-            <ContactInfo />
-            <SocialLinks />
-            <AvailabilityCard />
+            <div>
+              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+              <div className="grid grid-cols-1 gap-6">
+                {contactInfo.map((info, index) => (
+                  <div key={index} className="flex items-start">
+                    <div className="p-3 bg-brand-50 rounded-full mr-4">
+                      {info.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-1">{info.title}</h4>
+                      <p className="text-gray-700">{info.value}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-4">Connect on Social Media</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Follow me on social media to see my latest updates and projects.
+                </p>
+                <div className="flex space-x-4">
+                  {socialLinks.map((social, index) => (
+                    <a 
+                      key={index}
+                      href={social.url} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Connect on ${social.name}`}
+                      className="p-3 bg-gray-100 hover:bg-brand-50 rounded-full transition-colors"
+                      title={social.name}
+                    >
+                      {social.icon}
+                    </a>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-3">Availability</h3>
+                <p className="text-gray-700 mb-3">
+                  I'm currently available for freelance projects, full-time positions, and consulting opportunities.
+                </p>
+                <div className="bg-green-50 p-3 rounded-md border border-green-200">
+                  <div className="flex items-center">
+                    <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                    <span className="text-green-800 font-medium">Available for hire</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
