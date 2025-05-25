@@ -12,9 +12,7 @@ import VideoSection from "@/components/VideoSection";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import ParticleBackground from "@/components/ParticleBackground";
-import CustomCursor from "@/components/CustomCursor";
-import { handleScrollAnimation, setupSmoothScroll, setupMouseSpotlight } from "@/utils/animationUtils";
+import { handleScrollAnimation, setupSmoothScroll } from "@/utils/animationUtils";
 
 const Index = () => {
   useEffect(() => {
@@ -29,11 +27,6 @@ const Index = () => {
     
     // Setup smooth scrolling
     setupSmoothScroll();
-
-    // Setup mouse spotlight effect (only on non-touch devices)
-    if (!('ontouchstart' in window)) {
-      setupMouseSpotlight();
-    }
     
     return () => {
       window.removeEventListener("scroll", handleScrollAnimation);
@@ -42,26 +35,16 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative">
-      <ParticleBackground />
-      <CustomCursor />
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <Hero />
-      <div className="section-separator" />
       <About />
-      <div className="section-separator" />
       <Skills />
-      <div className="section-separator" />
       <Projects />
-      <div className="section-separator" />
       <Gallery />
-      <div className="section-separator" />
       <Testimonials />
-      <div className="section-separator" />
       <Education />
-      <div className="section-separator" />
       <VideoSection />
-      <div className="section-separator" />
       <Contact />
       <Footer />
       <ScrollToTop />
