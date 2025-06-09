@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -85,54 +86,56 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
-      <div className="section-container">
-        <div className="mb-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+    <section id="contact" className="py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-20 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Get In Touch</h2>
           <div className="w-16 h-1 bg-brand-500 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
             Interested in working together? Feel free to reach out for collaborations or just a friendly hello.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="reveal" data-animation="fade-right">
-            <Card>
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
+        <div className="grid grid-cols-1 xl:grid-cols-5 gap-12 lg:gap-16">
+          <div className="xl:col-span-3 reveal" data-animation="fade-right">
+            <Card className="shadow-lg">
+              <CardContent className="p-8 lg:p-10">
+                <h3 className="text-2xl font-bold mb-8">Send a Message</h3>
                 <form onSubmit={handleSubmit}>
-                  <div className="space-y-4">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                        Full Name
-                      </label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Your name"
-                        required
-                        className="w-full"
-                      />
+                  <div className="space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div>
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                          Full Name
+                        </label>
+                        <Input
+                          id="name"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          placeholder="Your name"
+                          required
+                          className="w-full h-12"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                          Email Address
+                        </label>
+                        <Input
+                          id="email"
+                          name="email"
+                          type="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder="you@example.com"
+                          required
+                          className="w-full h-12"
+                        />
+                      </div>
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                        Email Address
-                      </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="you@example.com"
-                        required
-                        className="w-full"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
                         Subject
                       </label>
                       <Input
@@ -142,11 +145,11 @@ const Contact = () => {
                         onChange={handleChange}
                         placeholder="How can I help you?"
                         required
-                        className="w-full"
+                        className="w-full h-12"
                       />
                     </div>
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                         Message
                       </label>
                       <Textarea
@@ -155,14 +158,14 @@ const Contact = () => {
                         value={formData.message}
                         onChange={handleChange}
                         placeholder="Your message..."
-                        rows={5}
+                        rows={6}
                         required
-                        className="w-full"
+                        className="w-full resize-none"
                       />
                     </div>
                     <Button 
                       type="submit" 
-                      className="w-full bg-brand-600 hover:bg-brand-700"
+                      className="w-full bg-brand-600 hover:bg-brand-700 h-12 text-base font-semibold"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? "Sending..." : "Send Message"}
@@ -173,17 +176,17 @@ const Contact = () => {
             </Card>
           </div>
 
-          <div className="space-y-8 reveal" data-animation="fade-left">
+          <div className="xl:col-span-2 space-y-8 reveal" data-animation="fade-left">
             <div>
-              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-              <div className="grid grid-cols-1 gap-6">
+              <h3 className="text-2xl font-bold mb-8">Contact Information</h3>
+              <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-start">
-                    <div className="p-3 bg-brand-50 rounded-full mr-4">
+                  <div key={index} className="flex items-start p-4 bg-white rounded-lg border border-gray-100 hover:shadow-md transition-shadow">
+                    <div className="p-3 bg-brand-50 rounded-full mr-4 flex-shrink-0">
                       {info.icon}
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-1">{info.title}</h4>
+                      <h4 className="font-semibold text-lg mb-1">{info.title}</h4>
                       <p className="text-gray-700">{info.value}</p>
                     </div>
                   </div>
@@ -191,13 +194,13 @@ const Contact = () => {
               </div>
             </div>
 
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4">Connect on Social Media</h3>
-                <p className="text-sm text-gray-600 mb-4">
+            <Card className="shadow-md">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold mb-6">Connect on Social Media</h3>
+                <p className="text-sm text-gray-600 mb-6 leading-relaxed">
                   Follow me on social media to see my latest updates and projects.
                 </p>
-                <div className="flex space-x-4">
+                <div className="grid grid-cols-2 gap-4">
                   {socialLinks.map((social, index) => (
                     <a 
                       key={index}
@@ -205,25 +208,30 @@ const Contact = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Connect on ${social.name}`}
-                      className="p-3 bg-gray-100 hover:bg-brand-50 rounded-full transition-colors"
+                      className="flex items-center p-3 bg-gray-50 hover:bg-brand-50 rounded-lg transition-colors group"
                       title={social.name}
                     >
-                      {social.icon}
+                      <div className="mr-3">
+                        {social.icon}
+                      </div>
+                      <span className="text-sm font-medium text-gray-700 group-hover:text-brand-600">
+                        {social.name}
+                      </span>
                     </a>
                   ))}
                 </div>
               </CardContent>
             </Card>
 
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-3">Availability</h3>
-                <p className="text-gray-700 mb-3">
+            <Card className="shadow-md">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold mb-4">Availability</h3>
+                <p className="text-gray-700 mb-6 leading-relaxed">
                   I'm currently available for freelance projects, full-time positions, and consulting opportunities.
                 </p>
-                <div className="bg-green-50 p-3 rounded-md border border-green-200">
+                <div className="bg-green-50 p-4 rounded-lg border border-green-200">
                   <div className="flex items-center">
-                    <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                    <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
                     <span className="text-green-800 font-medium">Available for hire</span>
                   </div>
                 </div>
